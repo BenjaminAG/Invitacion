@@ -8,6 +8,8 @@ app = Flask(__name__)
 EVENT_DATETIME_ISO = "2025-09-27T16:15:00"  # 27 Sept 2025, 4:15 PM
 
 @app.route("/")
+def home():
+    return render_template("index.html")
 def index():
     return render_template(
         "index.html",
