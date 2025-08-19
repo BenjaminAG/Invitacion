@@ -1,0 +1,153 @@
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+  background-color: #3b2a1a;
+  background-image:
+    linear-gradient(transparent, rgba(0,0,0,0.2)),
+    url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+  background-size: cover;
+}
+
+.header { padding: 24px 16px; background: rgba(0, 0, 0, 0.55); }
+.header h1 { font-size: clamp(28px, 4vw, 44px); text-shadow: 2px 2px 5px #000; margin: 0 0 10px; }
+.header h2 { margin: 6px 0 0; }
+
+.foto-cumple {
+  width: 150px; height: 150px; border-radius: 50%;
+  object-fit: cover; border: 5px solid #fff; box-shadow: 0 6px 20px rgba(0,0,0,.4);
+}
+
+.card {
+  padding: 26px 18px;
+  background: rgba(0, 0, 0, 0.45);
+  margin: 20px auto;
+  border-radius: 16px;
+  width: min(92%, 900px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.map-wrap iframe {
+  border: 0;
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+}
+
+.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.album img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.album img:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 10px 18px rgba(0,0,0,.35); }
+
+/* Borde de luces patrias */
+.borde-luces {
+  position: fixed; inset: 0; pointer-events: none;
+  box-shadow: 0 0 20px 8px green, 0 0 40px 16px white, 0 0 60px 24px red;
+  animation: luces 2s infinite alternate;
+}
+@keyframes luces {
+  0% { box-shadow: 0 0 20px 8px green; }
+  50% { box-shadow: 0 0 40px 16px white; }
+  100% { box-shadow: 0 0 60px 24px red; }
+}
+
+/* Contador con efecto rodeo */
+.contador {
+  font-size: clamp(28px, 6vw, 56px);
+  font-weight: 800;
+  margin-top: 6px;
+  display: inline-block;
+  animation: rodeo 1s infinite;
+}
+@keyframes rodeo {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-6px) rotate(-2deg); }
+  50% { transform: translateY(2px) rotate(1deg); }
+  75% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+/* Animales y vaquero */
+.anim.animal {
+  position: fixed; bottom: 8px; width: clamp(80px, 12vw, 140px); opacity: .95;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.5));
+}
+.horse { animation: moveX 18s linear infinite; }
+.horse.h2 { animation-delay: 6s; bottom: 56px; }
+.bull  { animation: moveXrev 22s linear infinite; bottom: 32px; opacity: .85; }
+.bull.b2 { animation-delay: 11s; }
+@keyframes moveX { 0% { left: -16vw; } 100% { left: 110vw; } }
+@keyframes moveXrev { 0% { right: -16vw; } 100% { right: 110vw; } }
+
+.vaquero-saludo {
+  position: fixed; right: 14px; bottom: 14px;
+  width: clamp(90px, 12vw, 130px);
+  animation: wave 2s infinite ease-in-out;
+}
+@keyframes wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(8deg); } }
+
+/* Confetti */
+.confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.confetti span {
+  position: absolute; width: 10px; height: 10px; will-change: transform;
+}
+
+/* Música */
+.music-control {
+  position: fixed; left: 12px; bottom: 12px; z-index: 50;
+}
+.music-control button {
+  font-weight: 700; border: 0; padding: 10px 14px; border-radius: 999px; cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0,0,0,.35);
+}
+
+.asistencia {
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.asistencia h2 {
+  color: #b91c1c; /* rojo estilo western */
+  margin-bottom: 15px;
+}
+
+.asistencia p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5c;
+  transform: scale(1.05);
+}

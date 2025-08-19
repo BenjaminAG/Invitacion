@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación {{ festejado }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <!-- Luces del borde -->
+  <div class="borde-luces"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>🎉 Invitación de <br> {{ festejado }} 🎉</h1>
+    <!-- Foto del cumpleañero (usa esta por default de vaquero, sustitúyela en /static/img/cumpleanero.jpg) -->
+    <img src="{{ url_for('static', filename='img/cumpleanero-default.svg') }}" class="foto-cumple" alt="Foto {{ festejado }}">
+    <h2>{{ fecha_evento }}</h2>
+  </header>
+
+  <!-- Contador -->
+  <section class="card">
+    <h2>⏳ Falta para la fiesta</h2>
+    <div id="contador" class="contador" aria-live="polite">Cargando…</div>
+  </section>
+
+  <!-- Misa -->
+  <section class="card">
+    <h2>🙏 Misa</h2>
+    <p>Acompáñame a dar gracias a Dios a las <b>{{ misa_hora }}</b></p>
+    <p><b>Iglesia de Nuestra Señora de La Medalla Milagrosa</b><br>
+      La Estrella Libra 39, Estrella, 55210 Ecatepec de Morelos, Méx.</p>
+    <div class="map-wrap">
+      <iframe
+        title="Mapa Iglesia"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Iglesia%20de%20Nuestra%20Se%C3%B1ora%20de%20La%20Medalla%20Milagrosa%20La%20Estrella%20Libra%2039,%20Estrella,%2055210%20Ecatepec%20de%20Morelos,%20M%C3%A9x.&output=embed">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Fiesta -->
+  <section class="card">
+    <h2>🎊 Fiesta</h2>
+    <p>Saliendo de la iglesia acompáñame a la reunión que me harán mis papás en el salón.</p>
+    <p><b>Salón</b><br>
+      Hermenegildo Galeana 12, Miguel Hidalgo, 55490 Ecatepec de Morelos, Méx.</p>
+    <div class="map-wrap">
+      <iframe
+        title="Mapa Salón"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Hermenegildo%20Galeana%2012,%20Miguel%20Hidalgo,%2055490%20Ecatepec%20de%20Morelos,%20M%C3%A9x.&output=embed">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Familia -->
+  <section class="card">
+    <h2>👨‍👩‍👦 Mis Papás</h2>
+    <p>Laura Garduño Avlila <br> Mauricio Flores Huerta</p>
+    <h2>🌟 Mis Madrinas</h2>
+    <p>Luz Maria Lopez Garduño <br> Adrian Dioselin Flores Huerta</p>
+  </section>
+
+  <!-- Álbum -->
+  <section class="card">
+    <h2>📸 Álbum de Fotos</h2>
+    <div class="album" id="album">
+      <!-- Reemplaza estas imágenes con fotos reales en /static/img/album/ y actualiza albumPhotos en app.js -->
+      <img src="https://placekitten.com/300/200" alt="foto1">
+      <img src="https://placekitten.com/301/200" alt="foto2">
+      <img src="https://placekitten.com/302/200" alt="foto3">
+    </div>
+  </section>
+  <!-- Asistencia -->
+  <section class="card asistencia">
+    <h2>📲 Confirmar asistencia</h2>
+    <p>Ayúdanos a organizar mejor tu lugar confirmando tu asistencia por WhatsApp.</p>
+    <a href="https://wa.me/525645359602?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Ángel%20Uriel."
+      target="_blank"
+      class="btn-whatsapp">
+      ✅ Confirmar por WhatsApp
+    </a>
+  </section>
+
+
+  <!-- Animaciones: caballos, toros, vaquero saludando -->
+  <img src="{{ url_for('static', filename='img/horse.svg') }}" class="anim animal horse h1" alt="caballo">
+  <img src="{{ url_for('static', filename='img/horse.svg') }}" class="anim animal horse h2" alt="caballo">
+  <img src="{{ url_for('static', filename='img/bull.svg') }}"  class="anim animal bull b1"  alt="toro">
+  <img src="{{ url_for('static', filename='img/bull.svg') }}"  class="anim animal bull b2"  alt="toro">
+  <img src="{{ url_for('static', filename='img/cowboy-wave.svg') }}" class="vaquero-saludo" alt="vaquero saludando">
+
+  <!-- Confetti patrias -->
+  <div class="confetti" id="confetti"></div>
+
+  <!-- Controles de música -->
+  <div id="music-control" class="music-control">
+    <button id="btnPlay">▶ Música</button>
+  </div>
+  <audio id="bgm" loop>
+    <source src="https://www.fesliyanstudios.com/play-mp3/4386" type="audio/mpeg">
+  </audio>
+
+  <script>
+    window.EVENT_ISO = "{{ evento_iso }}";
+  </script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
