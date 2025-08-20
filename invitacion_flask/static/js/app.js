@@ -71,11 +71,11 @@ function autoScrollAlbum() {
 setInterval(autoScrollAlbum, 2000);
 
 // Para sustituir por tus fotos locales, coloca archivos en /static/img/album y lista aquí:
-/*
+
 const albumPhotos = [
   '/static/img/album/foto1.jpg',
-  '/static/img/album/foto2.jpg',
   '/static/img/album/foto3.jpg',
+  '/static/img/album/foto2.jpg',
 ];
 const albumEl = document.getElementById('album');
 albumEl.innerHTML = '';
@@ -84,4 +84,3 @@ albumPhotos.forEach(src => {
   im.src = src; im.alt = 'Foto';
   albumEl.appendChild(im);
 });
-*/
