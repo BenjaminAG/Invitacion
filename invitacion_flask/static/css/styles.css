@@ -40,6 +40,7 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,.35);
 }
 
+
 .album {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
