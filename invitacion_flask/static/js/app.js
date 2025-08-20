@@ -46,18 +46,7 @@ setInterval(updateCountdown, 1000);
   document.head.appendChild(style);
 })();
 
-// --------- Música (autoplay friendly) ----------
-const audio = document.getElementById('bgm');
-const btnPlay = document.getElementById('btnPlay');
-btnPlay.addEventListener('click', async () => {
-  try {
-    await audio.play();
-    btnPlay.textContent = '⏸ Pausar';
-    btnPlay.onclick = () => { audio.pause(); btnPlay.textContent = '▶ Música'; };
-  } catch (e) {
-    console.log('Playback blocked:', e);
-  }
-});
+
 
 // --------- Álbum de fotos (simple carrusel auto-scroll) ----------
 const album = document.getElementById('album');
